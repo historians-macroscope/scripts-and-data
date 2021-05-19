@@ -58,8 +58,11 @@ text_df <- tibble(line = 1:179, text = scrape$entry, date = scrape$id, month = s
 
 tidy_diary <- text_df %>%
   unnest_tokens(word, text)
+
 View(tidy_diary) 
+
 data(stop_words)
+
 View(stop_words)
 
 tidy_diary <- tidy_diary %>%
