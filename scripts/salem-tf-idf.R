@@ -69,9 +69,20 @@ witch_words <- tidy_witches %>%
 
 head(witch_words)
 
+# visualize
+library(forcats)
+
+witches_tf_idf %>%
+  group_by(year) %>%
+  slice_max(tf_idf, n = 5) %>%
+  ungroup() %>%
+  ggplot(aes(tf_idf, fct_reorder(word, tf_idf), fill = year)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~year, ncol = 2, scales = "free") +
+  labs(x = "tf-idf", y = NULL)
 
 
-# let's do some tf_idf and plot things out!
+# another approach
 
 witch_words %>%
   count(year, word, sort = TRUE) %>%
