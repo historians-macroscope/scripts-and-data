@@ -1,8 +1,10 @@
+# install.packages("tidygraph")
+# install.packages("ggraph")
+
 library(tidyverse)
-install.packages("tidygraph")
 library(tidygraph)
-install.packages("ggraph")
 library(ggraph)
+
 letters <- read_csv("texas-correspondence-OpenRefine.csv")
 
 sources <- letters %>%
