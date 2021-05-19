@@ -130,4 +130,7 @@ d_documents['month'] <- month
 ggplot(d_documents, aes(x=month, y=gamma, fill=topic)) +
   geom_bar(stat = "identity") + ylab("proportion") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+#example using a 'seed' value to enable reproducibility:
+
 d_lda <- LDA(dtm, k = 4, control = list(seed = 1234))
