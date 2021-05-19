@@ -1,4 +1,6 @@
-install.packages("readr") 
+# remember, you can install packages like this:
+# install.packages("readr") 
+
 # libraries
 library(tidyverse)
 library(tidytext)
@@ -8,6 +10,8 @@ library(magrittr)
 library(tm) 
 
 # get the data
+# you can also get this data from the data folder in this repository, witches-all-reports.csv; rename or change the code accordingly
+
 witches  <- read_csv("all-reports.csv")
 
 #do some cleaning up to change the column names and to remove punctuation and numerals from the text. Notice there’s a bit of regex in the str_remove command
@@ -79,6 +83,8 @@ w_top_terms %>%
   facet_wrap(~ topic, scales = "free") +
   coord_flip()
 
+# by year
+
 witch_words <- tidy_witches %>%
   count(year, word, sort = TRUE)
 
@@ -97,26 +103,4 @@ ggplot(w_documents, aes(x=document, y=gamma, fill=topic)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 
-a <- Corpus(DirSource("diaries/"),
-            readerControl=list(language="lat")) #lat = latin characters
 
-#clean up the text by cleaning up and stemming
-a <- tm_map(a, removeNumbers)
-a <- tm_map(a, removePunctuation)
-a <- tm_map(a , stripWhitespace)
-a <- tm_map(a, tolower)
-a <- tm_map(a, removeWords, stopwords("english"))
-a <- tm_map(a, stemDocument, language = "english")
-
-#create the document term matrix
-dtm <-DocumentTermMatrix(a)
-dtm <- removeSparseTerms(dtm, 0.75)
-
-# remove any empty rows
-# Find the sum of words in each document
-# and then remove all docs without words
-rowTotals <- apply(dtm , 1, sum) 
-dtm.new <- dtm[rowTotals> 0, ] 
-
-library(topicmodels)
-d_lda <- LDA(dtm.new, k = 20, control = list(seed = 1234))
