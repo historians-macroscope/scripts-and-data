@@ -5,13 +5,13 @@ library(dplyr)
 library(magrittr)
 
 base_url <- "https://www.masshist.org"
-main.page <- read_html(x = "https://www.masshist.org/digitaladams/archive/browse/diaries_by_date.php")	
+main_page <- read_html(x = "https://www.masshist.org/digitaladams/archive/browse/diaries_by_date.php")	
 
-urls <- main.page %>% # feed `main.page` to the next step
+urls <- main_page %>% # feed `main.page` to the next step
   html_nodes("a") %>% # get the CSS nodes
   html_attr("href") # extract the URLs
 
-links <- main.page %>% 		# feed `main.page` to the next step
+links <- main_page %>% 		# feed `main.page` to the next step
   html_nodes("a") %>% 	# get the CSS nodes
   html_text() 		# extract the text
 
