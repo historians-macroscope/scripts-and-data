@@ -34,8 +34,10 @@ for(i in seq(nrow(reports))) {
   
 } #end the loop
 
+# the next bit depends on the stringr package; make sure it has been invoked
+# library(stringr)
 
-# str_extract will grab the first match
+# the command str_extract will grab the first match
 # reports.df[,1] is necessary so that R knows to search through the first column (the only column) of data
 
 month <- (str_extract(reports.df[,1], 
