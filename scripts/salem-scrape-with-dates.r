@@ -2,6 +2,7 @@
 library(rvest)
 library(dplyr)
 library(magrittr)
+library(stringr)
 
 base_url <- "http://salem.lib.virginia.edu/"
 main_page <- read_html(x = "http://salem.lib.virginia.edu/category/swp.html")	
