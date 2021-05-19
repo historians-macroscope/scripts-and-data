@@ -33,7 +33,7 @@ id <- id[-c(1)]
 scrape <- tibble(id, entry)
 View(scrape)
 
-install.packages("stringr"):
+install.packages("stringr")
   
 library(stringr)
 #removes the diary metadata from the date by taking everything 
