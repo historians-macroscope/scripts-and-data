@@ -28,3 +28,8 @@ df <- data.frame(line = 1:3080, title = metadata$title, text = full_text_tbl$ful
 write.csv(df, "nls-metadata/chapbooks-text.csv")
 ```
 to create a single CSV file with the chapbook OCR'd text, arranged 'title, text, data, certainty' (because some files the metadata wasn't sure when the chapbook was printed.
+
+
+The [John Adams diaries](https://www.masshist.org/digitaladams/archive/diary/) are used with permission.
+
+The [Salem Witchcraft Papers](http://salem.lib.virginia.edu/category/swp.html) are used with permission.
