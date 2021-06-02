@@ -72,6 +72,10 @@ head(witch_words)
 # visualize
 library(forcats)
 
+# do the tf-idf
+witches_tf_idf <- witch_words %>%
+  bind_tf_idf(word, year, n)
+
 witches_tf_idf %>%
   group_by(year) %>%
   slice_max(tf_idf, n = 5) %>%
