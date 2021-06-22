@@ -17,7 +17,7 @@ links <- main_page %>% 	   # feed `main_page` to the next step
 reports <- data_frame(links = links, urls = paste(base_url,urls, sep=""), stringsAsFactors = FALSE)
 
 View(reports)
-reports <- reports %>% slice(10:60)
+reports <- reports %>% tail(140) # we don't use slice; we just don't want the first 10 lines, so we'll count backwards from the end
 dir.create("reports")
 
 reports.df <- data.frame() 
