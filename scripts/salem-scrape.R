@@ -41,8 +41,8 @@ for(i in seq(nrow(reports))) {
   
   #this uses the relevant link text as the file name 
   
-  sink(file = filename) %>% # open file to write
-    cat(text) # write the file
+  sink(file = filename) # open file to write
+  cat(text) # write the file
   sink() # close the file
 } #end the loop
 
