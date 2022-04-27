@@ -46,3 +46,6 @@ for(i in seq(nrow(reports))) {
   sink() # close the file
 } #end the loop
 
+### say you have a list of urls in a csv that you want to scrape instead
+### use the readr package, and read_csv into a dataframe
+### then adapt the loop to read the urls from that dataframe
